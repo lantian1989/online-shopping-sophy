@@ -1,7 +1,21 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"> 
   <display-name>Archetype Created Web Application</display-name>
+  
+  <!-- Configuring front-controller: all the navigation -->
+  <servlet>
+	  <servlet-name>dispatcher</servlet-name>
+	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	  <!-- the xml file in the WEB-INF directory should be named as servlet-name with "-servlet.xml" -->
+	  <servlet-name>dispatcher</servlet-name>
+	  <!-- / means all the requests, should go to DispatcherServlet which means Spring will handle 
+	  the request rather than the normal web xml -->
+	  <url-pattern>/</url-pattern>
+  </servlet-mapping>
 </web-app>
